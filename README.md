@@ -1,11 +1,14 @@
-# Homework 1:
+# Homework 1: Data Processing and Performance
 
 This homework has three parts.
-The first part covers data processing fundamentals
-(input, cleaning, validation, and manipulation of DataFrames in Pandas).
-The second part is about comparing performance of various pipelines.
-Finally, the third part is your initial project proposal.
-Like the rest of the homeworks in this class, homework 1 comes with a project component.
+The first part reviews some of the basics of data processing
+in the context of Pandas
+(input, cleaning, validation, and manipulation of DataFrames).
+The second part is about performance measuring & comparison, and
+will explore several design choices which can affect performance.
+Finally, the third part is your "project proposal".
+
+For part 3: like the rest of the homeworks in this class, homework 1 comes with a project component.
 This task will ask you to choose a basic domain and dataset for your project,
 including manually collecting a small sample dataset of 10 data points.
 
@@ -37,3 +40,8 @@ are regenerated when the code is run.
   unless asked to do so.
 
 - As discussed in the syllabus, a small number of points on each homework (at most 10% of the grade) are reserved for style points. Here are some thoughts to consider: are your variable names chosen appropriately? Have you added comments with `#` or docstrings with `"""` where appropriate? Have you removed any obsolete, unused code blocks, functions, or variables?
+
+## Credits
+
+Thanks to Hassnain and the data science course at LUMS
+for some of the data and exercises that were used in Part 1 of this homework assignment.
