@@ -4,7 +4,6 @@ Part 3: Project Proposal
 The third and last part of this homework is the project proposal.
 
 To complete this part, go through and answer questions Q1-Q10.
-Then fix
 
 Used ChatGPT? (Y/N):
 
@@ -27,8 +26,6 @@ What is your research hypothesis?
 
 Examples:
 
-- I hypothesize that there is a correlation between number of edits on a Wikipedia page, vs. the number of
-
-
+- I hypothesize that...
 
 """

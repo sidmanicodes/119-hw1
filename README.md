@@ -1,19 +1,13 @@
-# Homework 1: Wikipedia
+# Homework 1:
 
 This homework has three parts.
-
-- Part 1 explores data input, cleaning, and validation through
-  data about world population in various countries.
-
-- Part 2 asks you to structure a data processing application using Python
-  classes.
-
-- Part 3 is your initial project proposal.
-  (Like the rest of the homeworks in this class, homework 1 comes with a project component).
-  For this homework, the task is mostly lightweight.
-  It will ask you to determine a hypothesis,
-  guide through 10 questions about the scope of your project,
-  and ask you to manually collect a small sample dataset of 10 data points.
+The first part covers data processing fundamentals
+(input, cleaning, validation, and manipulation of DataFrames in Pandas).
+The second part is about comparing performance of various pipelines.
+Finally, the third part is your initial project proposal.
+Like the rest of the homeworks in this class, homework 1 comes with a project component.
+This task will ask you to choose a basic domain and dataset for your project,
+including manually collecting a small sample dataset of 10 data points.
 
 ## Getting Started
 
@@ -28,14 +22,18 @@ If you get stuck, you can take a look at `hints.md` or consult Piazza.
 
 In order to receive credit for your work, please follow the following guidelines.
 
+- Make sure that you `git commit` and `git push` your latest code to your personal repository. This is how you will "submit" your code. Go to `github.com/<your repository link>` online to see if the changes are there; if you see the latest, most up-to-date version, then you are good to go.
+
 - Make sure that `python3 part1.py`, `python3 part2.py`, and `python3 part3.py` run successfully with no errors, and the same for
 `pytest part1.py`, `pytest part2.py`, and `pytest part3.py`.
 We cannot give credit to code that doesn't run.
 
-- Unless explicitly stated, don't rename any functions or methods or change the function signatures ("signature" means the number of arguments and the argument names).
+- Each part should produce, when run, a corresponding answers file `answers<n>.csv`, i.e. `answers1.csv`, `answers2.csv`, and `answers3.csv`,
+and corresponding plots in `plots`.
+Please commit these output files along with your project and ensure that they
+are regenerated when the code is run.
 
-- Make sure that the file `answers.csv` is filled in with your answers to each part.
+- Don't rename any functions or methods or change the function signatures
+  unless asked to do so.
 
-- Make sure that you `git commit` and `git push` your latest code to your personal repository. This is how you will "submit" your code. Go to `github.com/<your repository link>` online to see if the changes are there; if you see the latest, most up-to-date version, then you are good to go.
-
-- Lastly, as discussed in the syllabus, a small number of points on each homework (at most 10% of the grade) are reserved for style points. Here are some thoughts to consider: are your variable names chosen appropriately? Have you added comments with `#` or docstrings with `"""` where appropriate? Have you removed any obsolete, unused code blocks, functions, or variables?
+- As discussed in the syllabus, a small number of points on each homework (at most 10% of the grade) are reserved for style points. Here are some thoughts to consider: are your variable names chosen appropriately? Have you added comments with `#` or docstrings with `"""` where appropriate? Have you removed any obsolete, unused code blocks, functions, or variables?

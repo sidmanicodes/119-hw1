@@ -1,5 +1,13 @@
 """
-Part 1: Data Sources and Validation
+Part 1: Data Processing Fundamentals
+
+This part is a series of basic exercises about data processing
+fundamentals using Pandas.
+
+"""
+
+"""
+A. Differences between data sources
 
 This part will explore how data sources differ, and how we can
 mitigate this and understand the implications.
@@ -9,10 +17,6 @@ We will build a simple pipeline to determine the
 and then to get the total of these 10 countries in each case.
 
 To do that, we will get the data in three different ways.
-"""
-
-"""
-A. Data input
 
 Write three functions that get the input data for your pipeline
 from three different sources.
@@ -31,15 +35,6 @@ For the first and second one, you may download the input as a CSV.
 
 For the third one, you will write a function which scrapes the data from
 the Wikipedia table.
-"""
-
-
-
-
-"""
-A. Determine the largest 10 countries in the world by population.
-
-This part will ask you to get this data in three different ways.
 """
 
 def get_country_populations():
