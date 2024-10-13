@@ -1,6 +1,40 @@
 """
-Part 1:
+Part 1: Data Sources and Validation
+
+This part will explore how data sources differ, and how we can
+mitigate this and understand the implications.
+
+We will build a simple pipeline to determine the
+10 largest and smallest countries in the world by population,
+and then to get the total of these 10 countries in each case.
+
+To do that, we will get the data in three different ways.
 """
+
+"""
+A. Data input
+
+Write three functions that get the input data for your pipeline
+from three different sources.
+
+1. From Our World in Data:
+    https://ourworldindata.org/grapher/population
+
+2. From someone's provided dataset on GitHub:
+    https://github.com/datasets/population?tab=readme-ov-file
+
+3. By scraping data from Wikipedia:
+    Please use the following link:
+    https://en.wikipedia.org/w/index.php?title=List_of_countries_by_population_(United_Nations)&oldid=1249043677
+
+For the first and second one, you may download the input as a CSV.
+
+For the third one, you will write a function which scrapes the data from
+the Wikipedia table.
+"""
+
+
+
 
 """
 A. Determine the largest 10 countries in the world by population.
