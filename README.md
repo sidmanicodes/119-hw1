@@ -1,25 +1,35 @@
 # Homework 1: Data Processing and Performance
 
-This homework has three parts.
-The first part reviews some of the basics of data processing
+**Due date: October 25, 2024** (11:59pm)
+
+This homework will be released in three parts.
+
+- The first part (released Monday, Oct 14)
+reviews some of the basics of data processing
 in the context of Pandas
 (input, cleaning, validation, and manipulation of DataFrames).
-The second part is about performance measuring & comparison, and
-will explore several design choices which can affect performance.
-Finally, the third part is your "project proposal".
 
-For part 3: like the rest of the homeworks in this class, homework 1 comes with a project component.
+- The second part (released Wednesday, Oct 16)
+is about performance measuring & comparison, and
+will explore several design choices which can affect performance.
+
+- Finally, the third part (released Friday, Oct 18)
+is your "project proposal".
+Like the rest of the homeworks in this class, homework 1 comes with a project component.
 This task will ask you to choose a basic domain and dataset for your project,
 including manually collecting a small sample dataset of 10 data points.
 
 ## Getting Started
 
-This homework will be submitted through GitHub Classroom.
-You can find the instructions to join the classroom and accept the assignment on Piazza.
-Clone your repository,
-then open up and complete `part1.py`, `part2.py`, and `part3.py`.
+Clone this repository to your own machine (or open up a Codespace),
+then open up and complete `part1.py`.
+Parts 2 and 3 will be made available throughout the week.
 
-If you get stuck, you can take a look at `hints.md` or consult Piazza.
+For now, please work on your repo on your own machine or in Codespaces
+-- There will be further instructions on how to submit released with Part 3.
+Submission will be either via Gradescope or via GitHub Classroom.
+
+If you get stuck, please ask a question on Piazza!
 
 ## Grading Notes
 
