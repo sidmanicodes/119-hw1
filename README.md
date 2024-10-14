@@ -31,7 +31,7 @@ In order to receive credit for your work, please follow the following guidelines
 `pytest part1.py`, `pytest part2.py`, and `pytest part3.py`.
 We cannot give credit to code that doesn't run.
 
-- Each part should produce, when run, a corresponding answers file `answers<n>.csv`, i.e. `answers1.csv`, `answers2.csv`, and `answers3.csv`,
+- Each part should produce, when run, a corresponding answers file `part<n>-answers.txt`, i.e. `part1-answers.txt`, `part2-answers.txt`, and `part3-answers.txt`,
 and corresponding plots in `plots`.
 Please commit these output files along with your project and ensure that they
 are regenerated when the code is run.

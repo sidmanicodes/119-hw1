@@ -1,36 +1,76 @@
 """
 Part 1: Data Processing in Pandas
 
-This part will explore a dataset of world university rankings
+=== Instructions ===
+
+There are 22 questions in this part.
+For each part you will implement a function (q1, q2, etc.)
+Each function will take as input a data frame
+or a list of data frames and return the answer
+to the given question.
+
+To run your code, you can run `python3 part1.py`.
+This will run all the questions that you have implemented so far.
+It will also save the answers to part1-answers.txt.
+
+=== Dataset ===
+
+In this part, we will use a dataset of world university rankings
 called the "QS University Rankings".
 
 The ranking data was taken 2019--2021 from the following website:
 https://www.topuniversities.com/university-rankings/world-university-rankings/2021
 
-First, let's load the libraries we will need.
+=== Grading notes ===
+
+- Once you have completed this part, make sure that
+  your code runs, that part1-answers.txt is being re-generated
+  every time the code is run, and that the answers look
+  correct to you.
+
+- Make sure that you remove any NotImplementedError exceptions;
+  you won't get credit for any part that raises this exception
+  (but you will still get credit for future parts that do not raise it
+  if they don't depend on the previous parts).
+
+- Make sure that you fill in answers for the parts
+  marked "ANSWER ___ BELOW" and that you don't modify
+  the lines above and below the answer space.
+
+- Q6 has a few unit tests to help you check your work.
+  Make sure that you removed the `@pytest.mark.skip` decorators
+  and that all tests pass (show up in green, no red text!)
+  when you run `pytest part3.py`.
+
+===== Questions 1-6: Getting Started =====
+
+To begin, let's load the Pandas library.
 """
 
 import pandas as pd
-import pytest
-import matplotlib.pyplot as plt
 
 """
-1. Load the data into Pandas
+1. Load the dataset into Pandas
 
 Our first step is to load the data into a Pandas DataFrame.
-
-In doing so, we will also change the column names
+We will also change the column names
 to lowercase and reorder to get only the columns we are interested in.
-Fill in the parts marked TODO below.
 
-When you are done, remove the `@pytest.mark.skip` for the following test.
-You can run it with `pytest part1.py`.
-It should pass.
+Implement the rest of the function load_input()
+by filling in the parts marked TODO below.
+
+Return as your answer to q1 the number of dataframes loaded.
+(This part is implemented for you.)
 """
 
 NEW_COLUMNS = ['rank', 'university', 'region', 'academic reputation', 'employer reputation', 'faculty student', 'citations per faculty', 'overall score']
 
-def q1():
+def load_input():
+    """
+    Input: None
+    Return: a list of 3 dataframes, one for each year.
+    """
+
     # Load the input files and return them as a list of 3 dataframes.
     df_2019 = pd.read_csv('data/2019.csv', encoding='latin-1')
     df_2020 = pd.read_csv('data/2020.csv', encoding='latin-1')
@@ -42,33 +82,46 @@ def q1():
     df_2021.columns = df_2019.columns.str.lower()
 
     # Restructuring the column indexes
-    # TODO:
     # Fill out this part. You can use column access to get only the
     # columns we are interested in using the NEW_COLUMNS variable above.
+    # Make sure you return the columns in the new order.
+    # TODO
+
+    # When you are done, remove the next line...
     raise NotImplementedError
 
+    # ...and keep this line to return the dataframes.
     return [df_2019, df_2020, df_2021]
 
-@pytest.mark.skip
-def test_q1():
-    assert len(q1()) == 3
+def q1(dfs):
+    # As the "answer" to this part, let's just return the number of dataframes.
+    # Check that your answer shows up in part1-answers.txt.
+    return len(dfs)
 
 """
 2. Input validation
 
 Let's do some basic sanity checks on the data for Q1.
 
-First, fill in the following unit test.
-It should check that all three data frames have the same shape,
+Check that all three data frames have the same shape,
 and the correct number of rows and columns in the correct order.
 
-When the unit test is implemented, remove the part
-`@pytest.mark.skip` and then run `pytest part1.py` to run
-your code. Did it work?
+As your answer to q2, return True if all validation checks pass,
+and False otherwise.
 """
 
-@pytest.mark.skip
-def test_q2():
+def q2(dfs):
+    """
+    Input: Assume the input is provided by load_input()
+
+    Return: True if all validation checks pass, False otherwise.
+
+    Make sure you return a Boolean!
+    From this part onward, we will not provide the return
+    statement for you.
+    You can check that the "answers" to each part look
+    correct by inspecting the file part1-answers.txt.
+    """
     # Check:
     # - that all three dataframes have the same shape
     # - the number of rows
@@ -77,33 +130,58 @@ def test_q2():
     raise NotImplementedError
 
 """
-3. Input validation, continued
+===== Interlude: Checking your output so far =====
 
-Now write a unit test for another property: that the set of university names
-in each year is the same.
-Remove the part `@pytest.mark.skip` and then run `pytest part1.py` to run
-your code. Did it work?
+Run your code with `python3 part1.py` and open up the file
+output/part1-answers.txt to see if the output looks correct so far!
+
+You should check your answers in this file after each part.
+
+You are welcome to also print out stuff to the console
+in each question if you find it helpful.
 """
 
-@pytest.mark.skip
-def test_q2():
+ANSWER_FILE = "output/part1-answers.txt"
+
+def interlude():
+    print("Answers so far:")
+    with open(f"{ANSWER_FILE}") as fh:
+        print(fh.read())
+
+"""
+===== End of interlude =====
+
+3a. Input validation, continued
+
+Now write a validate another property: that the set of university names
+in each year is the same.
+As in part 2, return a Boolean value.
+(True if they are the same, and False otherwise)
+
+Once you implement and run your code,
+remember to check the output in part1-answers.txt.
+(True if the checks pass, and False otherwise)
+"""
+
+def q3(dfs):
     # Check:
     # - that the set of university names in each year is the same
+    # Return:
+    # - True if they are the same, and False otherwise.
     raise NotImplementedError
 
 """
-Did the test pass or fail? Comment below and explain why.
+3b (commentary).
+Did the checks pass or fail?
+Comment below and explain why.
 
-=== ANSWER Q3 BELOW ===
+=== ANSWER Q3b BELOW ===
 
-=== END OF Q3 ANSWER ===
-
-Important:
-If it failed, add @pytest.mark.xfail to the test_q3() function.
+=== END OF Q3b ANSWER ===
 """
 
 """
-4. Random sampling
+4a. Random sampling
 
 Now that we have the input data validated, let's get a feel for
 the dataset we are working with by taking a random sample of 5 rows
@@ -111,25 +189,30 @@ at a time.
 
 Implement q4() below to sample 5 points from each year's data.
 
-Code design: I recommend using a for loop to iterate over the dataframes.
+As your answer to this part, return the 5 samples *for 2021 only*
+as a list.
+
+Code design: You can use a for for loop to iterate over the dataframes.
 If df is a DataFrame, df.sample(5) returns a random sample of 5 rows.
 """
 
-def q4():
+def q4(dfs):
     # Sample 5 rows from each dataframe
     # Print out the samples
     raise NotImplementedError
 
-# Uncomment below and run python3 part1.py to see the samples.
-# q4()
+    # Answer as a list
+    return []
 
 """
-You can run a few times to see different samples.
+Once you have implemented this part,
+you can run a few times to see different samples.
 
+4b (commentary).
 Based on the data, write down at least 2 strengths
 and 3 weaknesses of this dataset.
 
-=== ANSWER Q4 BELOW ===
+=== ANSWER Q4b BELOW ===
 Strengths:
 1.
 2.
@@ -138,7 +221,7 @@ Weaknesses:
 1.
 2.
 3.
-=== END OF Q4 ANSWER ===
+=== END OF Q4b ANSWER ===
 """
 
 """
@@ -152,127 +235,296 @@ displayed in the console.
 Then, write a version using .count() to return the number of null values
 in each column as a dictionary.
 
-Remove the @pytest.mark.skip and run the tests when you are done.
+In both 5a and 5b: return as your answer
+as a list of the number of non-null values in each column.
 """
 
-def q5_info():
+def q5a(dfs):
     # TODO
     raise NotImplementedError
+    # Remember to return the list here
 
-def q5_count():
+def q5b(dfs):
     # TODO
     raise NotImplementedError
-    # Remember to return the dictionary here
+    # Remember to return the list here
 
-NUM_NON_NULL = 0 # TODO: Fill this in
+"""
+5c.
+One other thing:
+Also fill this in with how many non-null values are expected.
+We will use this in the unit tests below.
+"""
+
+def q5c():
+    raise NotImplementedError
+    # TODO: fill this in with the expected number
+    num_non_null = 0
+    return num_non_null
+
+"""
+===== Interlude again: Unit tests =====
+
+Unit tests
+
+Now that we have completed a few parts,
+let's talk about unit tests.
+We won't be using them for the entire assignment
+(in fact we won't be using them after this),
+but they can be a good way to ensure your work is correct
+without having to manually inspect the output.
+
+We need to import pytest first.
+"""
+
+import pytest
+
+"""
+The following are a few unit tests for Q1-5.
+
+To run the unit tests,
+first, remove (or comment out) the `@pytest.mark.skip` decorator
+from each unit test (function beginning with `test_`).
+Then, run `pytest part1.py` in the terminal.
+"""
+
+@pytest.mark.skip
+def test_q1():
+    dfs = load_input()
+    assert len(dfs) == 3
+    assert all([isinstance(df, pd.DataFrame) for df in dfs])
+
+@pytest.mark.skip
+def test_q2():
+    dfs = load_input()
+    assert q2(dfs)
+
+@pytest.mark.skip
+def test_q2():
+    dfs = load_input()
+    assert q3(dfs)
+
+@pytest.mark.skip
+def test_q4():
+    dfs = load_input()
+    samples = q4(dfs)
+    assert len(samples) == 5
 
 @pytest.mark.skip
 def test_q5():
-    q5_info()
-    dict = q5_count()
-    for key, value in dict.items():
-        assert value == NUM_NON_NULL
+    answers = q5a() + q5b()
+    assert len(answers) > 0
+    num_non_null = q5c()
+    for x in answers:
+        assert x == num_non_null
 
 """
-6. Adding columns
+6a. Are there any tests which fail?
+
+=== ANSWER Q6a BELOW ===
+
+=== END OF Q6a ANSWER ===
+
+6b. For each test that fails, is it because your code
+is wrong or because the test is wrong?
+
+=== ANSWER Q6b BELOW ===
+
+=== END OF Q6b ANSWER ===
+
+IMPORTANT: for any failing tests, if you think you have
+not made any mistakes, mark it with
+@pytest.mark.xfail
+above the test to indicate that the test is expected to fail.
+Run pytest part1.py again to see the new output.
+
+6c. Return the number of tests that failed, even after your
+code was fixed as the answer to this part.
+(As an integer)
+(If you have no failing tests, return 0.)
+"""
+
+def q6c():
+    # TODO
+    raise NotImplementedError
+
+"""
+===== End of interlude =====
+
+===== Questions 7-10: Data Processing =====
+
+7. Adding columns
 
 Notice that there is no 'year' column in any of the dataframe. As your first task, append an appropriate 'year' column in each dataframe.
 
 Append a column 'year' in each dataframe. It must correspond to the year for which the data is represented.
+
+As your answer to this part, return the number of columns in each dataframe after the addition.
 """
 
-def q6():
+def q7(dfs):
     # TODO
     raise NotImplementedError
+    # Remember to return the list here
 
 """
-7. Next, find the count of universities in each region that made it to the Top 100 each year. Print all of them/
+8a.
+Next, find the count of universities in each region that made it to the Top 100 each year. Print all of them.
+
+As your answer, return the count for "North America" in 2021.
 """
 
-def q7():
+def q8a(dfs):
     # Enter Code here
     # TODO
     raise NotImplementedError
+    # Remember to return the count here
 
 """
+8b.
 Do you notice some trend? Comment on what you observe and why might that be consistent throughout the years.
 
-=== ANSWER Q7 BELOW ===
+=== ANSWER Q8b BELOW ===
 
-=== END OF Q7 ANSWER ===
+=== END OF Q8b ANSWER ===
 """
-
-"""
-8.
-From the data of 2021, find the average score of all attributes for all universities.
-"""
-
-def q8():
-    # Enter code here
-    # TODO
-    raise NotImplementedError
 
 """
 9.
-From the same data of 2021, now find the average of *each* region for **all** attributes **excluding** 'rank' and 'year'. Store the results in a temporary variable named **average_2021**.
+From the data of 2021, find the average score of all attributes for all universities.
+
+As your answer, return the list of averages (for all attributes)
+in the order they appear in the dataframe:
+academic reputation, employer reputation, faculty student, citations per faculty, overall score.
+
+The list should contain 5 elements.
 """
 
-def q9():
+def q9(dfs):
     # Enter code here
     # TODO
     raise NotImplementedError
+    # Return the list here
 
 """
 10.
-Sort the average_2021 dataframe from the previous question based on overall score in a descending fashion (top to bottom).
+From the same data of 2021, now find the average of *each* region for **all** attributes **excluding** 'rank' and 'year'.
+
+In the function q10_helper, store the results in a variable named **avg_2021**
+and return it.
+
+Then in q10, print the first 5 rows of the avg_2021 dataframe.
+Then return 5.
 """
 
-# Enter Code here
+def q10_helper(dfs):
+    # Enter code here
+    # TODO
+    # Placeholder for the avg_2021 dataframe
+    avg_2021 = pd.DataFrame()
+    return avg_2021
+
+def q10(avg_2021):
+    """
+    Input: the avg_2021 dataframe
+    Print: the first 5 rows of the dataframe
+    Output: 5
+    """
+    # Enter code here
+    raise NotImplementedError
+    # Return 5
 
 """
+===== Questions 11-14: Exploring the avg_2021 dataframe =====
+
 11.
+Sort the avg_2021 dataframe from the previous question based on overall score in a descending fashion (top to bottom).
+
+As your answer to this part, return the top 5 rows of the sorted dataframe.
+"""
+
+def q11(avg_2021):
+    raise NotImplementedError
+
+"""
+12a.
 What do you observe from the table above? Which country tops the ranking?
-Which countries went down in the rankings?
+What is one country that went down in the rankings?
 
-Note: This is an open-ended question. Comment on why you think is the reason that USA is not top of the list.
+For the answer to this part return the name of the country that tops the ranking and the name of one country that went down in the rankings.
+"""
 
-=== ANSWER Q11 BELOW ===
+def q12a(avg_2021):
+    raise NotImplementedError
+    return ("TODO", "TODO")
 
-=== END OF Q11 ANSWER ===
+"""
+12b.
+Comment on why the country above is at the top of the list.
+(Note: This is an open-ended question.)
+
+=== ANSWER Q12b BELOW ===
+
+=== END OF Q12b ANSWER ===
 """
 
 """
-12.
-Represent all the attributes in the average_2021 dataframe using a box and whisker plot. Do you observe any anomalies in any of them? (7+3)
+13a.
+Represent all the attributes in the avg_2021 dataframe using a box and whisker plot. Do you observe any anomalies in any of them?
+
+You will need to use a plot!
+Store your plot in output/13a.png.
+
+As the answer to this part, return the name of the plot you saved.
 
 **Hint:** You can do this using subplots (and also otherwise)
 """
 
-def q12():
-    # Enter code here
+import matplotlib.pyplot as plt
+
+def q13a(avg_2021):
+    # Plot the box and whisker plot
     # TODO
     raise NotImplementedError
-
-# Write about anomalies in comments
+    # return "output/13a.png"
 
 """
-13.
-Represent all the attributes in the average_2021 dataframe using a scatter plot. Do you observe any general trend?
+=== ANSWER Q13b BELOW ===
+
+=== END OF Q13b ANSWER ===
+"""
+
+"""
+14a.
+Represent all the attributes in the avg_2021 dataframe using a scatter plot.
 
 **Hint:** Very similar to the previous question
+
+Store your plot in output/14a.png.
+
+As the answer to this part, return the name of the plot you saved.
 """
 
-def q13():
+def q14a(avg_2021):
     # Enter code here
     # TODO
     raise NotImplementedError
+    # return "output/14a.png"
 
 """
-We're just wrapping up now.
+Do you observe any general trend?
+
+=== ANSWER Q14b BELOW ===
+
+=== END OF Q14b ANSWER ===
+
+===== Questions 15-20: Exploring the data further =====
+
+We're more than halfway through!
 
 Let's come to the Top 10 Universities and observe how they performed over the years.
 
-14. Create a smaller dataframe which has the top ten universities from each year, and only their overall scores across the three years. (5)
+15. Create a smaller dataframe which has the top ten universities from each year, and only their overall scores across the three years.
 
 Hint:
 
@@ -280,82 +532,108 @@ Hint:
 *   The top ten universities are same across the three years. Only their rankings differ.
 *   Use the merge function. You can read more about how to use it in the documentation: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html
 *   Shape of the resultant dataframe should be (10, 4)
+
+As your answer, return the shape of the new dataframe.
 """
 
-def q14():
-    # Enter code here
+def q15_helper(dfs):
+    # Return the new dataframe
     # TODO
-    raise NotImplementedError
+    # Placeholder:
+    top_10 = pd.DataFrame()
+    return top_10
 
-"""
-As you noticed that when you merged, Pandas auto-assigned the column names. Let's change them.
-
-15.
-For the columns representing scores, rename them such that they describe the data that the column holds.
-"""
-
-def q15():
+def q15(top_10):
     # Enter code here
     # TODO
     raise NotImplementedError
 
 """
 16.
+You should have noticed that when you merged,
+Pandas auto-assigned the column names. Let's change them.
+
+For the columns representing scores, rename them such that they describe the data that the column holds.
+
+You should be able to modify the column names directly in the dataframe.
+As your answer, return the new column names.
+"""
+
+def q16(top_10):
+    # Enter code here
+    # TODO
+    raise NotImplementedError
+
+"""
+17a.
 Draw a suitable plot to show how the overall scores of the Top 10 universities varied over the three years. Clearly label your graph and attach a legend. Explain why you chose the particular plot.
+
+Save your plot in output/16.png.
+
+As the answer to this part, return the name of the plot you saved.
 
 Note:
 *   All universities must be in the same plot.
 *   Your graph should be clear and legend should be placed suitably
 """
 
-def q16():
+def q17a(top_10):
     # Enter code here
     # TODO
     raise NotImplementedError
+    # return "output/17a.png"
 
 """
-17.
+17b.
 What do you observe from the plot above? Which university has remained consistent in their scores? Which have increased/decreased over the years?
 
-=== ANSWER Q17 BELOW ===
+=== ANSWER Q17a BELOW ===
 
-=== END OF Q17 ANSWER ===
+=== END OF Q17b ANSWER ===
+"""
 
-18.
-Let's finally look at another useful tool to get an idea about how different variables are corelated to each other. We call it a **correlation matrix**
+"""
+===== Questions 18-19: Correlation matrices =====
+
+We're almost done!
+
+Let's look at another useful tool to get an idea about how different variables are corelated to each other. We call it a **correlation matrix**
 
 A correlation matrix provides a correlation coefficient (a number between -1 and 1) that tells how strongly two variables are correlated. Values closer to -1 mean strong negative correlation whereas values closer to 1 mean strong positve correlation. Values closer to 0 show variables having no or little correlation.
 
 You can learn more about correlation matrices from here: https://www.statology.org/how-to-read-a-correlation-matrix/
-"""
 
-def q18():
-    # Enter code here
-    # TODO
-    raise NotImplementedError
+18.
+Plot a correlation matrix to see how each variable is correlated to another. You can use the data from 2021.
 
-"""
-19.
-Plot a correlation matrix to see how each variable is correlated to another. You can use the data from 2021. (5)
+Print your correlation matrix and save it in output/18.png.
+
+As the answer to this part, return the name of the plot you saved.
 
 **Helpful link:** https://datatofish.com/correlation-matrix-pandas/
 """
 
-def q19():
+def q18(dfs):
     # Enter code here
     # TODO
     raise NotImplementedError
+    # return "output/18.png"
 
 """
-20. Comment on the matrix you obtained in the previous part.
+19. Comment on at least one entry in the matrix you obtained in the previous
+part that you found surprising or interesting.
 
-=== ANSWER Q20 BELOW ===
+=== ANSWER Q19 BELOW ===
 
-=== END OF Q20 ANSWER ===
+=== END OF Q19 ANSWER ===
 """
 
 """
-21. Exploring data manipulation and falsification
+===== Questions 20-23: Data manipulation and falsification =====
+
+This is the last section.
+
+20. Exploring data manipulation and falsification
 
 For fun, this part will ask you to come up with a way to alter the
 rankings such that your university of choice comes out in 1st place.
@@ -371,64 +649,149 @@ it in such a way that Berkeley will come out on top in the 2021 rankings.
 Then use it to sort the data by the new values and return the top 10 universities.
 """
 
-def q21a(df):
+def q20a(dfs):
     # TODO
     raise NotImplementedError
 
-def q21b(df):
+def q20b(dfs):
     # TODO
     raise NotImplementedError
 
 """
-22. Exploring data manipulation and falsification, continued
+21. Exploring data manipulation and falsification, continued
 
 This time, let's manipulate the data by changing the source files
 instead.
 Create a copy of data/2021.csv and name it
 data/2021_falsified.csv.
 Modify the data in such a way that UC Berkeley comes out on top.
+
+For this part, you will also need to load in the new data
+as part of the function.
+The function does not take an input; you should get it from the file.
+
+Return the top 10 universities from the falsified data.
 """
 
-def q22():
+def q21():
     # TODO
     raise NotImplementedError
 
 """
-23. Exploring data manipulation and falsification, continued
+22. Exploring data manipulation and falsification, continued
 
 Which of the methods above do you think would be the most effective
 if you were a "bad actor" trying to manipulate the rankings?
 
 Which do you think would be the most difficult to detect?
 
-=== ANSWER Q23 BELOW ===
+=== ANSWER Q22 BELOW ===
 
-=== END OF Q23 ANSWER ===
+=== END OF Q22 ANSWER ===
 """
 
 """
-24. Wrapping things up
+===== Wrapping things up =====
 
-Finally, to wrap things up, let's put everything together
-into a pipeline.
-You will use this pipeline in the first part of Part 2.
+To wrap things up, we have collected
+everything together in a pipeline for you
+below.
+
+**Don't modify this part.**
+It will put everything together,
+run your pipeline and save all of your answers.
+
+This is run in the main function
+and will be used in the first part of Part 2.
 """
 
-def q24():
-    # TODO
-    raise NotImplementedError
+UNFINISHED = 0
+
+def log_answer(name, func, *args):
+    try:
+        answer = func(*args)
+        print(f"{name} answer: {answer}")
+        with open(ANSWER_FILE, 'a') as f:
+            f.write(f'{name},{answer}\n')
+            print(f"Answer saved to {ANSWER_FILE}")
+    except NotImplementedError:
+        print(f"Warning: {name} not implemented.")
+        with open(ANSWER_FILE, 'a') as f:
+            f.write(f'{name},Not Implemented\n')
+        global UNFINISHED
+        UNFINISHED += 1
 
 def PART_1_PIPELINE():
-    # TODO
-    raise NotImplementedError
+    open(ANSWER_FILE, 'w').close()
+
+    try:
+        dfs = load_input()
+    except NotImplementedError:
+        print("Welcome to Part 1! Implement load_input() to get started.")
+        dfs = []
+
+    # Questions 1-6
+    log_answer("q1", q1, dfs)
+    log_answer("q2", q2, dfs)
+    log_answer("q3a", q3, dfs)
+    # 3b: commentary
+    log_answer("q4a", q4, dfs)
+    # 4b: commentary
+    log_answer("q5a", q5a, dfs)
+    log_answer("q5b", q5b, dfs)
+    log_answer("q5c", q5c)
+    # 6a: commentary
+    # 6b: commentary
+    log_answer("q6c", q6c)
+
+    # Questions 7-10
+    log_answer("q7", q7, dfs)
+    log_answer("q8a", q8a, dfs)
+    # 8b: commentary
+    log_answer("q9", q9, dfs)
+    # 10: avg_2021
+    avg_2021 = q10_helper(dfs)
+    log_answer("q10", q10, avg_2021)
+
+    # Questions 11-15
+    log_answer("q11", q11, avg_2021)
+    log_answer("q12", q12a, avg_2021)
+    # 12b: commentary
+    log_answer("q13", q13a, avg_2021)
+    # 13b: commentary
+    log_answer("q14a", q14a, avg_2021)
+    # 14b: commentary
+
+    # Questions 15-17
+    top_10 = q15_helper(dfs)
+    log_answer("q15", q15, top_10)
+    log_answer("q16", q16, top_10)
+    log_answer("q17", q17a, top_10)
+    # 17b: commentary
+
+    # Questions 18-20
+    log_answer("q18", q18, dfs)
+    # 19: commentary
+
+    # Questions 20-22
+    log_answer("q20a", q20a, dfs)
+    log_answer("q20b", q20b, dfs)
+    log_answer("q21", q21)
+    # 22: commentary
+
+    # Answer: return the number of questions that are not implemented
+    if UNFINISHED > 0:
+        print("Warning: there are unfinished questions.")
+
+    return UNFINISHED
 
 """
-Wow! This was a long ride. But I'm sure you have learned alot through this assignment. Not only will this help you a lot in your project, but we have cleaned data extensively, looked at a variety of visualization techniques, analyzed the results we obtained.
+That's it for Part 1!
+
+=== END OF PART 1 ===
+
+Main function
 """
 
-"""
-=== Main function ===
-
-Don't modify this part. It will put everything together,
-run your pipeline and save all of your answers.
-"""
+if __name__ == '__main__':
+    log_answer("PART 1", PART_1_PIPELINE)
