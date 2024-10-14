@@ -43,5 +43,6 @@ are regenerated when the code is run.
 
 ## Credits
 
-Thanks to Hassnain and the data science course at LUMS
-for some of the data and exercises that were used in Part 1 of this homework assignment.
+Many thanks to Hassnain (the TA)
+and the data science course at LUMS (CS 334 taught by Dr. Mobin Javed)
+for the data and some of the exercises that were used in Part 1 of this homework assignment.
