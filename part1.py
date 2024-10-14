@@ -28,6 +28,10 @@ https://www.topuniversities.com/university-rankings/world-university-rankings/20
   every time the code is run, and that the answers look
   correct to you.
 
+- Be careful about output types. For example if the question asks
+  for a list of DataFrames, don't return a numpy array or a single
+  DataFrame. When in doubt, ask on Piazza!
+
 - Make sure that you remove any NotImplementedError exceptions;
   you won't get credit for any part that raises this exception
   (but you will still get credit for future parts that do not raise it
