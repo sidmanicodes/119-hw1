@@ -16,10 +16,9 @@ import part1
 """
 === Questions 1-5: Throughput and Latency Helpers ===
 
-1. Throughput helper class
-
 We will design and fill out two helper classes.
-The first is a helper class for throughput.
+
+The first is a helper class for throughput (Q1).
 The class is created by adding a series of pipelines
 (via .add_pipeline(name, size, func))
 where name is a title describing the pipeline,
@@ -28,6 +27,8 @@ and func is a function that can be run on zero arguments
 which runs the pipeline (like def f()).
 
 The second is a similar helper class for latency (Q3).
+
+1. Throughput helper class
 
 Fill in the add_pipeline, eval_throughput, and generate_plot functions below.
 """
@@ -251,12 +252,42 @@ let's look at the cost of getting input from a file, vs. in an existing DataFram
 that we used in lecture 3.
 
 Load the data using load_input() given the file name.
-Then, set up a simple pipeline that returns
-a 5-number summary for the population data.
 
-Make sure that it cleans the data by removing continents
-and world data first!
-(World data is listed under OWID_WRL)
+- Make sure that you clean the data by removing
+  continents and world data!
+  (World data is listed under OWID_WRL)
+
+Then, set up a simple pipeline that computes summary statistics
+for the following:
+
+- *Year over year increase* in population, per country
+
+    (min, median, max, mean, and standard deviation)
+
+How you should compute this:
+
+- For each country, we need the maximum year and the minimum year
+in the data. We should divide the population difference
+over this time by the length of the time period.
+
+- Make sure you throw out the cases where there is only one year
+(if any).
+
+- We should at this point have one data point per country.
+
+- Finally, as your answer, return a list of the:
+    min, median, max, mean, and standard deviation
+  of the data.
+
+Hints:
+You can use the describe() function in Pandas to get these statistics.
+You should be able to do something like
+df.describe().loc["min"]["colum_name"]
+
+to get a specific value from the describe() function.
+
+You shouldn't use any for loops.
+See if you can compute this using Pandas functions only.
 """
 
 def load_input(filename):
@@ -266,13 +297,13 @@ def load_input(filename):
 
 def population_pipeline(df):
     # Input: the dataframe from load_input()
-    # Return a 5-number summary (as a list of 5 elements)
+    # Return a list of min, median, max, mean, and standard deviation
     raise NotImplementedError
 
 def q6():
     # As your answer to this part,
     # call load_input() and then population_pipeline()
-    # and return the 5-number summary.
+    # Return a list of min, median, max, mean, and standard deviation
     raise NotImplementedError
 
 """
@@ -406,6 +437,7 @@ def q9b():
 10.
 Comment on the plots above!
 How dramatic is the difference between the two pipelines?
+Which differs more, throughput or latency?
 What does this experiment show?
 
 ===== ANSWER Q10 BELOW =====
@@ -414,7 +446,7 @@ What does this experiment show?
 """
 
 """
-===== Questions 11-15: Performance Comparison 2 =====
+===== Questions 11-14: Performance Comparison 2 =====
 
 Our second performance comparison will explore vectorization.
 
@@ -423,11 +455,145 @@ fast operations.
 In particular, they are often much faster than using for loops.
 
 Let's explore whether this is true!
+
+11.
+First, we need to set up our pipelines for comparison as before.
+
+We already have the baseline pipelines from Q8,
+so let's just set up a comparison pipeline
+which uses a for loop to calculate the same statistics.
+
+Create a new pipeline:
+- Iterate through the dataframe entries. You can assume they are sorted.
+- Manually compute the minimum and maximum year for each country.
+- Add all of these to a Python list. Then manually compute the summary
+  statistics for the list (min, median, max, mean, and standard deviation).
 """
 
+def for_loop_pipeline(df):
+    # Input: the dataframe from load_input()
+    # Return a list of min, median, max, mean, and standard deviation
+    raise NotImplementedError
+
+def q11():
+    # As your answer to this part, call load_input() and then
+    # for_loop_pipeline() to return the 5 numbers.
+    # (these should match the numbers you got in Q6.)
+    raise NotImplementedError
+
+"""
+12.
+Now, let's create our pipelines for comparison.
+
+As before, write 4 pipelines based on the datasets from Q7.
+"""
+
+def for_loop_small():
+    raise NotImplementedError
+
+def for_loop_medium():
+    raise NotImplementedError
+
+def for_loop_large():
+    raise NotImplementedError
+
+def for_loop_latency():
+    raise NotImplementedError
+
+def q12():
+    # Don't modify this part
+    _ = for_loop_medium()
+    return ["for_loop_small", "for_loop_medium", "for_loop_large", "for_loop_latency"]
+
+"""
+13.
+Finally, let's compare our two pipelines,
+as we did in Q9.
+
+a. Generate a plot in output/q13a.png of the throughputs
+    Return the list of 6 throughputs in this order:
+    baseline_small, baseline_medium, baseline_large, for_loop_small, for_loop_medium, for_loop_large
+
+b. Generate a plot in output/q13b.png of the latencies
+    Return the list of 2 latencies in this order:
+    baseline_latency, for_loop_latency
+"""
+
+def q13a():
+    # Add all 6 pipelines for a throughput comparison
+    # Generate plot in ouptut/q13a.png
+    # Return list of 6 throughputs
+    raise NotImplementedError
+
+def q13b():
+    # Add 2 pipelines for a latency comparison
+    # Generate plot in ouptut/q13b.png
+    # Return list of 2 latencies
+    raise NotImplementedError
+
+"""
+14.
+Comment on the results you got!
+
+14a. Which pipelines is faster in terms of throughput?
+
+===== ANSWER Q14a BELOW =====
+
+===== END OF Q14a ANSWER =====
+
+14b. Which pipeline is faster in terms of latency?
+
+===== ANSWER Q14b BELOW =====
+
+===== END OF Q14b ANSWER =====
+
+14c. Do you notice any other interesting observations?
+What does this experiment show?
+
+===== ANSWER Q14c BELOW =====
+
+===== END OF Q14c ANSWER =====
+"""
+
+"""
+===== Questions 15-17: Reflection Questions =====
+15.
+
+Take a look at all your pipelines above.
+Which factor that we tested (file vs. variable, vectorized vs. for loop)
+had the biggest impact on performance?
+
+===== ANSWER Q15 BELOW =====
+
+===== END OF Q15 ANSWER =====
+
+16.
+Based on all of your plots, form a hypothesis as to how throughput
+varies with the size of the input dataset.
+
+(Any hypothesis is OK as long as it is supported by your data!
+This is an open ended question.)
+
+===== ANSWER Q16 BELOW =====
+
+===== END OF Q16 ANSWER =====
+
+17.
+Based on all of your plots, form a hypothesis as to how
+throughput is related to latency.
+
+(Any hypothesis is OK as long as it is supported by your data!
+This is an open ended question.)
+
+===== ANSWER Q17 BELOW =====
+
+===== END OF Q17 ANSWER =====
+"""
 
 """
 ===== Extra Credit =====
+
+This question is optional.
 
 Use your pipeline to compare something else!
 
@@ -444,11 +610,19 @@ Here are some ideas for what to try:
   https://stackoverflow.com/a/45866311/2038713
 
 As your answer to this part,
-as before, return the list of 6 throughputs
-and the list of 6 latencies.
+as before, return
+a. the list of 6 throughputs
+and
+b. the list of 2 latencies.
 """
 
+# TODO: extra credit (optional)
 
+def extra_credit_a():
+    raise NotImplementedError
+
+def extra_credit_b():
+    raise NotImplementedError
 
 """
 ===== Wrapping things up =====
@@ -497,6 +671,22 @@ def PART_2_PIPELINE():
     log_answer("q9a", q9a)
     log_answer("q9b", q9b)
     # 10: commentary
+
+    # Q11-14
+    log_answer("q11", q11)
+    log_answer("q12", q12)
+    log_answer("q13a", q13a)
+    log_answer("q13b", q13b)
+    # 14: commentary
+
+    # 15-17: reflection
+    # 15: commentary
+    # 16: commentary
+    # 17: commentary
+
+    # Extra credit
+    log_answer("extra credit (a)", extra_credit_a)
+    log_answer("extra credit (b)", extra_credit_b)
 
     # Answer: return the number of questions that are not implemented
     if UNFINISHED > 0:
