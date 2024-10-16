@@ -306,7 +306,7 @@ def test_q2():
     assert q2(dfs)
 
 @pytest.mark.skip
-def test_q2():
+def test_q3():
     dfs = load_input()
     assert q3(dfs)
 
@@ -318,7 +318,8 @@ def test_q4():
 
 @pytest.mark.skip
 def test_q5():
-    answers = q5a() + q5b()
+    dfs = load_input()
+    answers = q5a(dfs) + q5b(dfs)
     assert len(answers) > 0
     num_non_null = q5c()
     for x in answers:
