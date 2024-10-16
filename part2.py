@@ -195,7 +195,7 @@ for this question run the same pipeline three times
 on a single list item.
 """
 
-LIST_SINGLE_ITEM = [] # TODO: fill in this line
+LIST_SINGLE_ITEM = [10] # Note: a list with only 1 item
 
 def q4a():
     # Create a LatencyHelper object
@@ -203,7 +203,7 @@ def q4a():
     # Add the single pipeline three times.
     raise NotImplementedError
     # Generate a plot.
-    # Save the plot as 'output/q2a.png'.
+    # Save the plot as 'output/q4a.png'.
     # TODO
     # Finally, return the latencies as a list.
     # TODO
@@ -593,7 +593,7 @@ This is an open ended question.)
 """
 ===== Extra Credit =====
 
-This question is optional.
+This part is optional.
 
 Use your pipeline to compare something else!
 
@@ -614,9 +614,13 @@ as before, return
 a. the list of 6 throughputs
 and
 b. the list of 2 latencies.
+
+and generate plots for each of these in the following files:
+    output/extra_credit_a.png
+    output/extra_credit_b.png
 """
 
-# TODO: extra credit (optional)
+# Extra credit (optional)
 
 def extra_credit_a():
     raise NotImplementedError
