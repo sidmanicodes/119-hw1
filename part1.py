@@ -235,10 +235,11 @@ Weaknesses:
 
 Let's see where we stand in terms of null values.
 We can do this in two different ways.
-First, use .info() to see the number of non-null values in each column
+
+a. Use .info() to see the number of non-null values in each column
 displayed in the console.
 
-Then, write a version using .count() to return the number of null values
+b. Write a version using .count() to return the number of null values
 in each column as a dictionary.
 
 In both 5a and 5b: return as your answer
@@ -378,7 +379,7 @@ def q7(dfs):
 8a.
 Next, find the count of universities in each region that made it to the Top 100 each year. Print all of them.
 
-As your answer, return the count for "North America" in 2021.
+As your answer, return the count for "USA" in 2021.
 """
 
 def q8a(dfs):
