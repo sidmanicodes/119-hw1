@@ -48,6 +48,13 @@ https://www.topuniversities.com/university-rankings/world-university-rankings/20
   and that all tests pass (show up in green, no red text!)
   when you run `pytest part3.py`.
 
+- For plots: There are no specific requirements on which
+  plotting methods you use; if not specified, use whichever
+  plot you think might be most appropriate for the data
+  at hand.
+  Please ensure your plots are labeled and human-readable.
+  For example, call .legend() on the plot before saving it!
+
 ===== Questions 1-6: Getting Started =====
 
 To begin, let's load the Pandas library.
@@ -187,7 +194,7 @@ Comment below and explain why.
 """
 
 """
-4a. Random sampling
+4. Random sampling
 
 Now that we have the input data validated, let's get a feel for
 the dataset we are working with by taking a random sample of 5 rows
@@ -195,11 +202,16 @@ at a time.
 
 Implement q4() below to sample 5 points from each year's data.
 
-As your answer to this part, return the 5 samples *for 2021 only*
-as a list.
+As your answer to this part, return the *university name*
+of the 5 samples *for 2021 only* as a list.
+(That is: ["University 1", "University 2", "University 3", "University 4", "University 5"])
 
 Code design: You can use a for for loop to iterate over the dataframes.
 If df is a DataFrame, df.sample(5) returns a random sample of 5 rows.
+
+Hint:
+    to get the university name:
+    try .iloc on the sample, then ["university"].
 """
 
 def q4(dfs):
@@ -207,7 +219,7 @@ def q4(dfs):
     # Print out the samples
     raise NotImplementedError
 
-    # Answer as a list
+    # Answer as a list of 5 university names
     return []
 
 """
@@ -239,10 +251,11 @@ We can do this in two different ways.
 a. Use .info() to see the number of non-null values in each column
 displayed in the console.
 
-b. Write a version using .count() to return the number of null values
-in each column as a dictionary.
+b. Write a version using .count() to return the number of
+non-null values in each column as a dictionary.
 
 In both 5a and 5b: return as your answer
+*for the 2021 data only*
 as a list of the number of non-null values in each column.
 """
 
@@ -349,7 +362,8 @@ Run pytest part1.py again to see the new output.
 6c. Return the number of tests that failed, even after your
 code was fixed as the answer to this part.
 (As an integer)
-(If you have no failing tests, return 0.)
+Please include expected failures (@pytest.mark.xfail).
+(If you have no failing or xfail tests, return 0.)
 """
 
 def q6c():
@@ -743,7 +757,7 @@ def PART_1_PIPELINE():
     log_answer("q2", q2, dfs)
     log_answer("q3a", q3, dfs)
     # 3b: commentary
-    log_answer("q4a", q4, dfs)
+    log_answer("q4", q4, dfs)
     # 4b: commentary
     log_answer("q5a", q5a, dfs)
     log_answer("q5b", q5b, dfs)
