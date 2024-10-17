@@ -498,9 +498,8 @@ Comment on why the country above is at the top of the list.
 
 """
 13a.
-Represent all the attributes in the avg_2021 dataframe using a box and whisker plot. Do you observe any anomalies in any of them?
+Represent all the attributes in the avg_2021 dataframe using a box and whisker plot.
 
-You will need to use a plot!
 Store your plot in output/13a.png.
 
 As the answer to this part, return the name of the plot you saved.
@@ -517,6 +516,9 @@ def q13a(avg_2021):
     # return "output/13a.png"
 
 """
+b. Do you observe any anomalies in the box and whisker
+plot?
+
 === ANSWER Q13b BELOW ===
 
 === END OF Q13b ANSWER ===
