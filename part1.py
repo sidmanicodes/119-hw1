@@ -257,12 +257,18 @@ non-null values in each column as a dictionary.
 In both 5a and 5b: return as your answer
 *for the 2021 data only*
 as a list of the number of non-null values in each column.
+
+Example: if there are 5 null values in the first column, 3 in the second, 4 in the third, and so on, you would return
+    [5, 3, 4, ...]
 """
 
 def q5a(dfs):
     # TODO
     raise NotImplementedError
     # Remember to return the list here
+    # (Since .info() does not return any values,
+    # for this part, you will need to copy and paste
+    # the output as a hardcoded list.)
 
 def q5b(dfs):
     # TODO
