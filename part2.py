@@ -65,7 +65,8 @@ class ThroughputHelper:
         # Measure the throughput of all pipelines
         # and store it in a list in self.throughputs.
         # Make sure to use the NUM_RUNS variable.
-        # Also, return the resulting list of throughputs.
+        # Also, return the resulting list of throughputs,
+        # in **number of items per second.**
         raise NotImplementedError
 
     def generate_plot(self, filename):
@@ -162,7 +163,8 @@ class LatencyHelper:
     def compare_latency(self):
         # Measure the latency of all pipelines
         # and store it in a list in self.latencies.
-        # Also, return the resulting list of latencies.
+        # Also, return the resulting list of latencies,
+        # in **milliseconds.**
         raise NotImplementedError
 
     def generate_plot(self, filename):
