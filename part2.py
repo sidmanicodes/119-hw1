@@ -701,9 +701,7 @@ def PART_2_PIPELINE():
     return UNFINISHED
 
 """
-That's it for Part 1!
-
-=== END OF PART 1 ===
+=== END OF PART 2 ===
 
 Main function
 """

@@ -14,10 +14,8 @@ is about performance measuring & comparison, and
 will explore several design choices which can affect performance.
 
 - Finally, the third part (released Friday, Oct 18)
-is your "project proposal".
-Like the rest of the homeworks in this class, homework 1 comes with a project component.
-This task will ask you to choose a basic domain and dataset for your project,
-including manually collecting a small sample dataset of 10 data points.
+is a shorter part about programming in the shell,
+and its relevance to data processing.
 
 ## Getting Started
 
