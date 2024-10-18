@@ -79,8 +79,10 @@ class ThroughputHelper:
 
 """
 As your answer to this part,
-return a string containing the plot method you decided to use in
+return the name of the method you decided to use in
 matplotlib.
+
+(Example: "boxplot" or "scatter")
 """
 
 def q1():

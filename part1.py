@@ -442,7 +442,6 @@ In the function q10_helper, store the results in a variable named **avg_2021**
 and return it.
 
 Then in q10, print the first 5 rows of the avg_2021 dataframe.
-Then return 5.
 """
 
 def q10_helper(dfs):
@@ -456,7 +455,9 @@ def q10(avg_2021):
     """
     Input: the avg_2021 dataframe
     Print: the first 5 rows of the dataframe
-    Output: 5
+
+    As your answer, simply return the number of rows printed.
+    (That is, return the integer 5)
     """
     # Enter code here
     raise NotImplementedError
@@ -468,7 +469,7 @@ def q10(avg_2021):
 11.
 Sort the avg_2021 dataframe from the previous question based on overall score in a descending fashion (top to bottom).
 
-As your answer to this part, return the top 5 rows of the sorted dataframe.
+As your answer to this part, return the first row of the sorted dataframe.
 """
 
 def q11(avg_2021):
@@ -477,7 +478,14 @@ def q11(avg_2021):
 """
 12a.
 What do you observe from the table above? Which country tops the ranking?
+
 What is one country that went down in the rankings?
+(You will need to load the data and get the 2020 data to answer this part.
+You may choose to do this
+by writing another function like q10_helper and running q11,
+or you may just do it separately
+(e.g., in a Python shell) and return the name of the university that you found went
+down in the rankings.)
 
 For the answer to this part return the name of the country that tops the ranking and the name of one country that went down in the rankings.
 """
@@ -526,9 +534,8 @@ plot?
 
 """
 14a.
-Represent all the attributes in the avg_2021 dataframe using a scatter plot.
-
-**Hint:** Very similar to the previous question
+Pick two attributes in the avg_2021 dataframe
+and represent them using a scatter plot.
 
 Store your plot in output/14a.png.
 
@@ -673,19 +680,31 @@ UC Berkeley is a public university nearby and in the same university system,
 so let's pick that one.
 
 We will write two functions.
-First, write a function that chooses a new column and calculates
+a.
+First, write a function that calculates a new column
+(that is you should define and insert a new column to the dataframe whose value
+depends on the other columns)
+and calculates
 it in such a way that Berkeley will come out on top in the 2021 rankings.
 
-Then use it to sort the data by the new values and return the top 10 universities.
+Note: you can "cheat"; it's OK if your scoring function is picked in some way
+that obviously makes Berkeley come on top.
+As an extra challenge to make it more interesting, you can try to come up with
+a scoring function that is subtle!
+
+b.
+Use your new column to sort the data by the new values and return the top 10 universities.
 """
 
 def q20a(dfs):
     # TODO
     raise NotImplementedError
+    # For your answer, return the score for Berkeley in the new column.
 
 def q20b(dfs):
     # TODO
     raise NotImplementedError
+    # For your answer, return the top 10 universities.
 
 """
 21. Exploring data manipulation and falsification, continued
