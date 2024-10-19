@@ -23,19 +23,15 @@ Clone this repository to your own machine (or open up a Codespace),
 then open up and complete `part1.py`.
 Parts 2 and 3 will be made available throughout the week.
 
-For now, please work on your repo on your own machine or in Codespaces
--- There will be further instructions on how to submit released with Part 3.
-Submission will be either via Gradescope or via GitHub Classroom.
-
 If you get stuck, please ask a question on Piazza!
 
 ## Submitting Your Code
 
 We will use Gradescope to submit the code for this assignment.
 Instructions will be posted on Piazza.
-You can submit code using Gradescope in one of two ways;
-you can submit via GitHub by using a private GitHub repository which contains your work;
-or, you can upload your code directly as a `.zip` file.
+You can submit code on Gradescope in one of two ways;
+via a private GitHub repository which contains your work;
+or, via uploading a `.zip` file.
 
 ## Grading Notes
 
