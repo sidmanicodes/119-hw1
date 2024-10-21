@@ -1,0 +1,51 @@
+q1,3
+q2,True
+q3a,True
+q4,['City University of Hong Kong', 'Tsinghua University', 'Pohang University of Science And Technology (POSTECH)', 'University of Copenhagen', 'Harvard University']
+q5a,[0, 0, 0, 0, 0, 0, 0, 0]
+q5b,[0, 0, 0, 0, 0, 0, 0, 0]
+q5c,100
+q6c,1
+q7,[9, 9, 9]
+q8a,29
+q9,[67.041, 67.68, 73.539, 82.147, 75.504]
+q10,5
+q11,academic reputation       82.25
+employer reputation       75.30
+faculty student          100.00
+citations per faculty     95.95
+overall score             91.80
+Name: Singapore, dtype: float64
+q12,('Singapore', 'South Korea')
+q13,output/13a.png
+q14a,output/14a.png
+q15,(10, 4)
+q16,['university', 'overall score 2019', 'overall score 2020', 'overall score 2021']
+q17,output/17a.png
+q18,output/18.png
+q20a,1
+q20b,    rank                                university     region  academic reputation  employer reputation  faculty student  citations per faculty  overall score  year  fake_col
+27    28  University of California, Berkeley (UCB)        USA                 97.7                 39.7             92.4                  100.0           82.6  2021      0.00
+26    27              The University of Manchester         UK                 51.5                 98.6             92.6                   94.9           82.7  2021      0.01
+29    29                     University of Toronto     Canada                 43.9                 93.0             97.7                   98.9           82.1  2021      0.25
+28    29        The Australian National University  Australia                 87.4                 99.8            100.0                   96.9           82.1  2021      0.25
+30    31                   Northwestern University        USA                 62.8                 49.0             76.1                   85.9           81.5  2021      1.21
+25    25               The University of Hong Kong      China                 44.5                 99.1            100.0                   97.3           83.8  2021      1.44
+24    25                           Duke University         UK                 80.3                 59.3             12.4                   89.0           83.8  2021      1.44
+23    24                  Johns Hopkins University        USA                 77.6                 81.5             68.8                   88.3           83.9  2021      1.69
+22    22                   The University of Tokyo      Japan                 67.9                 26.2             11.1                  100.0           84.3  2021      2.89
+21    22                         Peking University      China                 73.0                 36.9             70.7                   99.1           84.3  2021      2.89
+q21,    rank                                         university  overall score  academic reputation  ...  international faculty  international students  citations per faculty       region
+27     1           University of California, Berkeley (UCB)           82.6                 97.7  ...                   30.9                    99.9                  100.0          USA
+1      2                                Stanford University           98.4                 98.6  ...                  100.0                   100.0                  100.0          USA
+2      3                                 Harvard University           97.4                 99.6  ...                   98.7                   100.0                  100.0          USA
+3      4                               University of Oxford           97.2                 84.7  ...                  100.0                   100.0                  100.0           UK
+4      5       California Institute of Technology (Caltech)           96.9                100.0  ...                  100.0                    81.2                   97.8          USA
+5      6  ETH Zurich - Swiss Federal Institute of Techno...           95.9                 98.4  ...                   85.0                    96.7                   98.4  Switzerland
+6      7                            University of Cambridge           95.0                 74.2  ...                  100.0                   100.0                  100.0           UK
+7      8                                                UCL           94.8                 76.7  ...                   98.1                    98.7                   99.3           UK
+8      9                            Imperial College London           94.1                 72.1  ...                   99.8                    99.9                   98.6           UK
+9     10                              University of Chicago           92.0                 78.5  ...                   96.5                    93.7                   99.5          USA
+
+[10 rows x 10 columns]
+PART 1,0
