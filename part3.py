@@ -39,32 +39,42 @@ convert it to an integer and return it. You should get "12345".
 
 # You may need to conda install requests or pip3 install requests
 import requests
+import subprocess
 
-def download_file(url, filename):
+def download_file(url: str, filename: str) -> None:
     r = requests.get(url)
     with open(filename, 'wb') as f:
         f.write(r.content)
 
-def clone_repo(repo_url):
-    # TODO
-    raise NotImplementedError
+def clone_repo(repo_url: str) -> None:
+    try:
+        subprocess.run(['git', 'clone', repo_url], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"There was an error downloading the repo: {e}")
 
-def run_script(script_path, data_path):
-    # TODO
-    raise NotImplementedError
+def run_script(script_path: str, data_path: str) -> None:
+    try:
+        subprocess.run(['python3', script_path, data_path], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"There was an error in running the script: {e}")
 
 def setup(repo_url, data_url, script_path):
-    # TODO
-    raise NotImplementedError
+    clone_repo(repo_url)
+    download_file(data_url, "dataset.txt")
+    run_script(script_path, "dataset.txt")
 
 def q1():
-    # Call setup as described in the prompt
-    # TODO
-    # Read the file test-output.txt to a string
-    # TODO
-    # Return the integer value of the output
-    # TODO
-    raise NotImplementedError
+    # setup(
+    #     "https://github.com/DavisPL-Teaching/119-hw1",
+    #     "https://raw.githubusercontent.com/DavisPL-Teaching/119-hw1/refs/heads/main/data/test-input.txt",
+    #     "test-script.py"
+    # )
+
+    res = ""
+    with open('./output/test-output.txt', 'r') as f:
+        res = f.read()
+
+    return int(res)
 
 """
 2.
@@ -76,13 +86,14 @@ a. When might you need to use a script like setup() above in
 this scenario?
 
 === ANSWER Q2a BELOW ===
-
+You could set up a cron job (either local or cloud-hosted depending on the team) to
+run setup() at fixed intervals to fetch new data
 === END OF Q2a ANSWER ===
 
 Do you see an alternative to using a script like setup()?
 
 === ANSWER Q2b BELOW ===
-
+If the goal is just to fetch new data periodically, setup() should work fine
 === END OF Q2b ANSWER ===
 
 3.
@@ -123,17 +134,19 @@ any packages?
 """
 
 def setup_for_new_machine():
-    # TODO
-    raise NotImplementedError
+    requirements = ['pandas', 'numpy', 'matplotlib', 'seaborn', 'pytest', 'tqdm']
 
-def q3():
+    try:
+        for req in requirements:
+            subprocess.run(['conda', 'install', req], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Something went wrong when trying to install the dependencies: {e}")
+
+def q3() -> str:
     # As your answer, return a string containing
     # the operating system name that you assumed the
     # new machine to have.
-    # TODO
-    raise NotImplementedError
-    # os =
-    return os
+    return 'unix/linux'
 
 """
 4. This question is open ended :)
@@ -145,7 +158,9 @@ scripts like setup() and setup_for_new_machine()
 in their day-to-day jobs?
 
 === ANSWER Q4 BELOW ===
-
+Quite often, companies that rely on cloud computing / technologies will often have to configure
+blank servers from scratch, so it helps to have some sort of startup script to handle this
+automatically
 === END OF Q4 ANSWER ===
 
 5. Extra credit
@@ -171,7 +186,7 @@ This series of questions will be in the same style as part 2.
 Let's import the part2 module:
 """
 
-import part2
+from part2 import ThroughputHelper, LatencyHelper
 import pandas as pd
 
 """
@@ -206,21 +221,27 @@ Hints:
    (shell command that spits output) | wc -l
 """
 
-def pipeline_shell():
-    # TODO
-    raise NotImplementedError
+import os
+
+def pipeline_shell() -> int:
+    ans = os.popen("cat ./data/population.csv | tail -n +1 | wc -l").read()
+
     # Return resulting integer
+    return int(ans)
 
 def pipeline_pandas():
-    # TODO
-    raise NotImplementedError
+    df = pd.read_csv('./data/population.csv')
+
     # Return resulting integer
+    return df.shape[0]
 
 def q6():
     # As your answer to this part, check that both
     # integers are the same and return one of them.
-    # TODO
-    raise NotImplementedError
+    shell_output, pandas_output = pipeline_shell(), pipeline_pandas()
+    
+    assert shell_output == pandas_output
+    return shell_output
 
 """
 Let's do a performance comparison between the two methods.
@@ -236,9 +257,14 @@ def q7():
     # Return a tuple of two floats
     # throughput for shell, throughput for pandas
     # (in rows per second)
-    # TODO
-    raise NotImplementedError
-
+    data_smt = pipeline_pandas()
+    
+    h = ThroughputHelper()
+    h.add_pipeline(name='shell', func=pipeline_shell, size=data_smt)
+    h.add_pipeline(name='pandas', func=pipeline_pandas, size=data_smt)
+    
+    throughputs = h.compare_throughput(create_input_from_size=False)
+    return throughputs
 """
 8. Latency
 """
@@ -247,15 +273,21 @@ def q8():
     # Return a tuple of two floats
     # latency for shell, latency for pandas
     # (in milliseconds)
-    # TODO
-    raise NotImplementedError
+    data_smt = pipeline_pandas()
+    
+    h = LatencyHelper()
+    h.add_pipeline(name='shell', func=pipeline_shell, size=data_smt)
+    h.add_pipeline(name='pandas', func=pipeline_pandas, size=data_smt)
+    
+    latencies = h.compare_latency(create_input_from_size=False)
+    return latencies
 
 """
 9. Which method is faster?
 Comment on anything else you notice below.
 
 === ANSWER Q9 BELOW ===
-
+Pandas had lower latency (aka higher speed), as well as a higher throughput
 === END OF Q9 ANSWER ===
 """
 
