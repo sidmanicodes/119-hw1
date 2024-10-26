@@ -132,7 +132,7 @@ matplotlib.
 
 def q1() -> str:
     # Return plot method (as a string) from matplotlib
-    return "box plot"
+    return "bar plot"
 
 """
 2. A simple test case
@@ -249,7 +249,7 @@ class LatencyHelper:
             # Average throughput = number of items / average time
             # print(f"sizes[i]: {self.sizes[i]}")
             avg_latency = total_time / self.sizes[i] / NUM_RUNS
-            self.latencies.append(avg_latency)
+            self.latencies.append(avg_latency * 1_000)
 
         return self.latencies
 
@@ -345,11 +345,12 @@ from part1 import load_input as load_part1_input, PART_1_PIPELINE
 
 df1, df2, df3 = load_part1_input()
 
-# The total input size is the total amount of data in all dataframes
-part1_input_size = (df1.shape[0] * df1.shape[1]) + (df2.shape[0] * df2.shape[1]) + (df3.shape[0] * df3.shape[1])
+# The total input size is the total number of rows in all dataframes
+part1_input_size = df1.shape[0] + df2.shape[0] + df3.shape[0]
 
 def q5a():
     # Return the throughput of the pipeline in part 1.
+    print(part1_input_size)
     h = ThroughputHelper()
     h.add_pipeline(name='Part 1 pipeline', size=part1_input_size, func=PART_1_PIPELINE)
     throughputs = h.compare_throughput(create_input_from_size=False)

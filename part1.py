@@ -196,7 +196,7 @@ def q3(dfs: list[pd.DataFrame]):
     # Check:
     # - that the set of university names in each year is the same
     # note that order does not matter here, so we will use a set
-    same_uni_names = all(set(df1.university) & set(df2.university)) and all(set(df2.university) & set(df3.university))
+    same_uni_names = set(df1.university) == set(df2.university) == set(df3.university)
 
     # Return:
     # - True if they are the same, and False otherwise.
@@ -296,17 +296,11 @@ def q5a(dfs) -> list[int]:
     # (Since .info() does not return any values,
     # for this part, you will need to copy and paste
     # the output as a hardcoded list.)
-    return [0, 0, 0, 0, 0, 0, 0, 0]
+    return [100, 100, 100, 100, 100, 100, 100, 100]
 
 def q5b(dfs: list[pd.DataFrame]) -> list[int]:
-    _, _, df = dfs
-    num_rows = df.shape[0]
-    res = []
-
-    # The number of NA rows per column can be determined by
-    # total_rows - non_na_rows for each column
-    for count in df.count():
-        res.append(num_rows - count)
+    df = dfs[2]
+    res = [count for count in df.count()]
 
     # Remember to return the list here
     return res
@@ -429,7 +423,7 @@ Append a column 'year' in each dataframe. It must correspond to the year for whi
 As your answer to this part, return the number of columns in each dataframe after the addition.
 """
 
-def q7(dfs: list[pd.DataFrame]):
+def q7(dfs: list[pd.DataFrame]) -> list[int]:
     df1, df2, df3 = dfs
 
     df1['year'] = 2019
@@ -437,7 +431,7 @@ def q7(dfs: list[pd.DataFrame]):
     df3['year'] = 2021
 
     # Remember to return the list here
-    return [len(df1.columns), len(df2.columns), len(df3.columns)]
+    return [df1.shape[1], df2.shape[1], df3.shape[1]]
 
 """
 8a.
